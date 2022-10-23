@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
      before_action :authenticate_user!
-     before_action :ensure_current_user, {only: [:edit,:update,:destroy]}
-     #(ログインユーザー以外の人が情報を遷移しようとした時に制限をかける)
+     before_action :current_user, {only: [:edit,:update,:destroy]}
+    
 
     def create
       @user = current_user
@@ -18,9 +18,9 @@ class BooksController < ApplicationController
     end
 
     def show
-        @user = current_user
     	@book = Book.find(params[:id])
-    	@book_new = Book.new
+    	@newbook = Book.new
+      @user = @book.user
     end
 
     def index
