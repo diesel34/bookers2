@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class HomesController < ApplicationRecord
   def top
   end
 
