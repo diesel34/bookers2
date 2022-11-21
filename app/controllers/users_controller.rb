@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-      def update
+    def update
         @user = User.find(params[:id])
         if  @user.update(user_params)
         flash[:notice] = "You have updated user successfully."
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
         flash[:notice] = " errors prohibited this obj from being saved:"
             render :edit
         end
-      end
+    end
 
   private
   def user_params
